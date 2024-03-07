@@ -8,3 +8,6 @@ __pycache__/
 #Mac Files
 .DS_Store
 
+# Config files
+/*config.toml
+

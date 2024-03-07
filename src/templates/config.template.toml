@@ -1,0 +1,7 @@
+[application]
+  host = "localhost"
+
+  port = 8080
+[database]
+  [database.psql]
+    connection_string = "postgres://<db_user>:<db_password>@<db_host>:<port>/<db_name>"
