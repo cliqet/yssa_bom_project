@@ -1,0 +1,7 @@
+[application]
+  host = "localhost"
+
+  port = 8080
+[database]
+  [database.psql]
+    connection_string = "postgres://postgres:dbpassword@localhost:5432/aqwire"

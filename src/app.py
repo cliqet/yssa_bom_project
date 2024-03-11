@@ -1,12 +1,15 @@
 from dash import Dash
 import dash_bootstrap_components as dbc
-
 from layout import main_layout
+from config.configuration import config
+from database.postgres import initialize_sql_database
 
 app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 application = app.server
 
+initialize_sql_database()
+
 app.layout = main_layout.render_layout(app)
 
 if __name__ == '__main__':
-    application.run(port=8080)
+    application.run(host=config.application.host, port=config.application.port)
