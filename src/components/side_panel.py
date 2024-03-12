@@ -37,6 +37,17 @@ def render(app: Dash) -> dbc.Col:
             'background-color': 'rgb(216,231,214)'
         }),
 
+        dcc.Link('Product List', href='/productlist', style={
+            'display': 'block',
+            'margin': '8px',
+            'font-size': '20px',
+            'font-family': 'Arial, sans-serif', 
+            'color': 'black', 
+            'text-decoration': 'none',
+            'padding': '5px',
+            'background-color': 'rgb(216,231,214)'
+        }),
+
         dcc.Link('Client List', href='/clientlist', style={
             'display': 'block',
             'margin': '8px',
