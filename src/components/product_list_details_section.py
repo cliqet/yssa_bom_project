@@ -4,15 +4,14 @@ import dash_bootstrap_components as dbc
 
 # Define Table
 table_data = [
-    {'ID': '1', 'Setup Type': 'Cluster', 'Name': 'Cluster 2x2 meters','Description': ''},
-    {'ID': '2', 'Setup Type': 'Cluster', 'Name': 'Cluster 2x3 meters','Description': ''},
-    {'ID': '3', 'Setup Type': 'Cluster', 'Name': 'Cluster 3x3 meters','Description': ''},
-    {'ID': '4', 'Setup Type': 'Cluster', 'Name': 'Cluster 3x4 meters','Description': ''},
-    {'ID': '5', 'Setup Type': 'Cluster', 'Name': 'Cluster 4x4 meters','Description': ''},
-    {'ID': '6', 'Setup Type': 'Perimeter', 'Name': 'Perimeter 2x2 meters','Description': ''},
-    {'ID': '7', 'Setup Type': 'Perimeter', 'Name': 'Perimeter 2x3 meters','Description': ''},
-    {'ID': '8', 'Setup Type': 'Perimeter', 'Name': 'Perimeter 3x3 meters','Description': ''},
-    
+    {'ID': '1', 'Setup Type': 'Cluster', 'Name': 'Cluster 2x2 meters', 'Description': 'Standard Booth'},
+    {'ID': '2', 'Setup Type': 'Cluster', 'Name': 'Cluster 2x3 meters', 'Description': 'Standard Booth'},
+    {'ID': '3', 'Setup Type': 'Cluster', 'Name': 'Cluster 3x3 meters', 'Description': 'Standard Booth'},
+    {'ID': '4', 'Setup Type': 'Cluster', 'Name': 'Cluster 3x4 meters', 'Description': 'Standard Booth'},
+    {'ID': '5', 'Setup Type': 'Cluster', 'Name': 'Cluster 4x4 meters', 'Description': 'Standard Booth'},
+    {'ID': '6', 'Setup Type': 'Perimeter', 'Name': 'Perimeter 2x2 meters', 'Description': 'Standard Booth'},
+    {'ID': '7', 'Setup Type': 'Perimeter', 'Name': 'Perimeter 2x3 meters', 'Description': 'Standard Booth'},
+    {'ID': '8', 'Setup Type': 'Perimeter', 'Name': 'Perimeter 3x3 meters', 'Description': 'Standard Booth'}    
 ] 
 
 table_columns = [

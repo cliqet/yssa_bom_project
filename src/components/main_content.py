@@ -8,9 +8,9 @@ def render(app: Dash) -> dbc.Col:
     # return dbc.Col(job_order_page.render(app))
     # return dbc.Col(bom_generator_page.render(app))
     # return dbc.Col(jo_bom_list_page.render(app))
-    # return dbc.Col(product_list_page.render(app))
+    return dbc.Col(product_list_page.render(app))
     # return dbc.Col(client_list_page.render(app))
-    return dbc.Col(employee_list_page.render(app))
+    # return dbc.Col(employee_list_page.render(app))
 
 
 
