@@ -1,5 +1,5 @@
 from dash import Dash, html, dcc
-import dash_table
+from dash import dash_table
 import dash_bootstrap_components as dbc
 
 # Define Table
