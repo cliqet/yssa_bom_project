@@ -5,6 +5,7 @@ from components import side_panel, main_content
 
 def render_layout(app: Dash) -> dbc.Container:
     return dbc.Container([
+        # Header
         dbc.Row([
             dbc.Col(html.Img(src='/assets/msdlogo.png', style={
                 'width': '30vw',
@@ -32,8 +33,7 @@ def render_layout(app: Dash) -> dbc.Container:
             'border-bottom': '3px solid black',
             'padding': '0 40px',
             'box-sizing': 'border-box',
-            'height': '100px',
-            'margin-bottom': '3px'
+            'height': '100px'
         }),
 
         dbc.Row([

@@ -80,6 +80,5 @@ def render(app: Dash) -> dbc.Col:
         'vertical-align': 'top',
         'padding': '8px',
         'background-color': 'rgb(216,231,214)',
-        'box-sizing': 'border-box'
-
+        'box-sizing': 'border-box',
     }, width=2)
