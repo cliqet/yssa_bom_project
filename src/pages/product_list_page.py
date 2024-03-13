@@ -1,9 +1,9 @@
 from dash import Dash
 import dash_bootstrap_components as dbc
-from components import jo_bom_list_details
+from components import product_list_details_section
 
 
 def render(app: Dash) -> dbc.Row:
     return dbc.Row([
-        dbc.Row(jo_bom_list_details.render(app))
+        dbc.Row(product_list_details_section.render(app))
     ])
