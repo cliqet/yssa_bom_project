@@ -1,7 +1,10 @@
+from datetime import datetime
 from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
 from constants.styles import LABEL_STYLE, INPUT_STYLE, FORM_GROUP_HEADER_STYLE
+from database.get_employees import get_employee_names
 
+employee_names: list[dict] = get_employee_names()
 
 def render(app: Dash) -> dbc.Col:
     return dbc.Col([
@@ -32,11 +35,11 @@ def render(app: Dash) -> dbc.Col:
                         html.H3("Sales Executive:", style=LABEL_STYLE)
                     ),
                     dbc.Col(
-                        dcc.Input(
-                            id='sales-exec', 
-                            type='text', 
-                            placeholder="",
-                            style=INPUT_STYLE, 
+                        dcc.Dropdown(
+                            id='sales-exec',
+                            options=employee_names,
+                            value=employee_names[0].get('value'),
+                            style=INPUT_STYLE,
                             className='mb-2'
                         )
                     )
@@ -48,11 +51,10 @@ def render(app: Dash) -> dbc.Col:
                         html.H3("Date Created:", style=LABEL_STYLE)
                     ),
                     dbc.Col(
-                        dcc.Input(
-                            id='date-created', 
-                            type='text', 
-                            placeholder="",
-                            style=INPUT_STYLE, 
+                        dcc.DatePickerSingle(
+                            id='date-created',
+                            date=datetime.now().strftime('%Y-%m-%d'),
+                            style={**INPUT_STYLE},
                             className='mb-2'
                         )
                     )
@@ -103,15 +105,25 @@ def render(app: Dash) -> dbc.Col:
                 ]),
                 dbc.Row([
                     dbc.Col(html.H3("Event Start Date:", style=LABEL_STYLE)),
-                    dbc.Col(dcc.Input(
-                        id='event-start-date', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
-                    ))
+                    dbc.Col(
+                        dcc.DatePickerSingle(
+                            id='event-start-date',
+                            date=datetime.now().strftime('%Y-%m-%d'),
+                            style={**INPUT_STYLE},
+                            className='mb-2'
+                        )
+                    )
                 ]),
                 dbc.Row([
                     dbc.Col(html.H3("Event End Date:", style=LABEL_STYLE)),
-                    dbc.Col(dcc.Input(
-                        id='event-end-date', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
-                    ))
+                    dbc.Col(
+                        dcc.DatePickerSingle(
+                            id='event-end-date',
+                            date=datetime.now().strftime('%Y-%m-%d'),
+                            style={**INPUT_STYLE},
+                            className='mb-2'
+                        )
+                    )
                 ])
             ]),
             
@@ -149,9 +161,14 @@ def render(app: Dash) -> dbc.Col:
                 dbc.Row(html.H3("Setup Schedule:", style=FORM_GROUP_HEADER_STYLE)),
                 dbc.Row([
                     dbc.Col(html.H3("Ingress Date:", style=LABEL_STYLE)),
-                    dbc.Col(dcc.Input(
-                        id='ingress-date', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
-                    ))
+                    dbc.Col(
+                        dcc.DatePickerSingle(
+                            id='ingress-date',
+                            date=datetime.now().strftime('%Y-%m-%d'),
+                            style={**INPUT_STYLE},
+                            className='mb-2'
+                        )
+                    )
                 ]),
                 dbc.Row([
                     dbc.Col(html.H3("Ingress Time:", style=LABEL_STYLE)),
