@@ -1,118 +1,121 @@
 from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
-
+from constants.styles import LABEL_STYLE, INPUT_STYLE, FORM_GROUP_HEADER_STYLE
 
 def render(app: Dash) -> dbc.Col:
-    return dbc.Col(html.H3("Requirements Sections"))
-    # return dbc.Col([
+    return dbc.Col([
+        # Requirement inputs section
+        dbc.Row([
+            # Cluster booth
+            dbc.Col([
+                dbc.Row(html.H3("Cluster Booth Requirements:", style=FORM_GROUP_HEADER_STYLE)),
+                dbc.Row([
+                    dbc.Col(),
+                    dbc.Col(html.H3("Booth Count", style=LABEL_STYLE)),
+                    dbc.Col(html.H3("Total Count", style=LABEL_STYLE)),
+                ]),
+                dbc.Row([
+                    dbc.Col(html.H3("2 x 2 meters", style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(
+                        id='cluster-booth-2x2', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    )),
+                    dbc.Col(dcc.Input(
+                        id='cluster-total-2x2', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    ))
+                ]),
+                dbc.Row([
+                    dbc.Col(html.H3("2 x 3 meters", style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(
+                        id='cluster-booth-2x3', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    )),
+                    dbc.Col(dcc.Input(
+                        id='cluster-total-2x3', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    ))
+                ]),
+                dbc.Row([
+                    dbc.Col(html.H3("3 x 3 meters", style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(
+                        id='cluster-booth-3x3', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    )),
+                    dbc.Col(dcc.Input(
+                        id='cluster-total-3x3', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    ))
+                ]),
+                dbc.Row([
+                    dbc.Col(html.H3("3 x 4 meters", style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(
+                        id='cluster-booth-3x4', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    )),
+                    dbc.Col(dcc.Input(
+                        id='cluster-total-3x4', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    ))
+                ]),
+                dbc.Row([
+                    dbc.Col(html.H3("4 x 4 meters", style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(
+                        id='cluster-booth-4x4', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    )),
+                    dbc.Col(dcc.Input(
+                        id='cluster-total-4x4', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    ))
+                ]),
 
-    #     # Cluster Booth Requirements
-    #     dbc.Row([
-    #         dbc.Col(html.H3("Cluster Booth Requirements:", style={
-    #             'font-family': 'Tahoma', 'font-size': '25px', 'font-weight': 'bold', 'white-space': 'nowrap'}), width=12),
-    #     ], className="mb-2"),
+                # Prepared by section
+                dbc.Row([
+                    dbc.Col(html.H3("Prepared by:", style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(
+                        id='prepared-bys', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    )),
+                    dbc.Col(
+                        html.Button('Save', style={
+                            'font-family': 'Tahoma',
+                            'font-weight': 'bold',
+                            'color': 'white',
+                            'background-color': 'rgb(37,80,45)',
+                            'border': 'none',
+                            'padding': '10px 20px',
+                            'border-radius': '5px',
+                            'width': '200px'
+                        })
+                    )
+                ], style={'margin-top': '30px', 'margin-bottom': '20px'})              
+        ]),
 
-    #     dbc.Row([
-    #         dbc.Col(html.Div("2x2 meters:", style={
-    #             'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-    #         dbc.Col(dcc.Input(id='2x2-cluster-count', type='text', placeholder="booth count",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #         dbc.Col(width=1),
-    #         dbc.Col(dcc.Input(id='2x2-cluster-total', type='text', placeholder="total",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #     ], className="mb-2"),
-
-    #     dbc.Row([
-    #         dbc.Col(html.Div("2x3 meters:", style={
-    #             'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-    #         dbc.Col(dcc.Input(id='2x3-cluster-count', type='text', placeholder="booth count",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #         dbc.Col(width=1),
-    #         dbc.Col(dcc.Input(id='2x3-cluster-total', type='text', placeholder="total",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #     ], className="mb-2"),
-
-    #     dbc.Row([
-    #         dbc.Col(html.Div("3x3 meters:", style={
-    #             'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-    #         dbc.Col(dcc.Input(id='3x3-cluster-count', type='text', placeholder="booth count",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #         dbc.Col(width=1),
-    #         dbc.Col(dcc.Input(id='3x3-cluster-total', type='text', placeholder="total",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #     ], className="mb-2"),
-
-    #     dbc.Row([
-    #         dbc.Col(html.Div("3x4 meters:", style={
-    #             'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-    #         dbc.Col(dcc.Input(id='3x4-cluster-count', type='text', placeholder="booth count",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #         dbc.Col(width=1),
-    #         dbc.Col(dcc.Input(id='3x4-cluster-total', type='text', placeholder="total",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #     ], className="mb-2"),
-
-    #     dbc.Row([
-    #         dbc.Col(html.Div("4x4 meters:", style={
-    #             'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-    #         dbc.Col(dcc.Input(id='4x4-cluster-count', type='text', placeholder="booth count",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #         dbc.Col(width=1),
-    #         dbc.Col(dcc.Input(id='4x4-cluster-total', type='text', placeholder="total",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #     ], className="mb-2"),
-
-    #     html.Br(),
-
-    #     # Perimeter Booth Requirements
-    #     dbc.Row([
-    #         dbc.Col(html.H3("Perimeter Booth Requirements:", style={
-    #             'font-family': 'Tahoma', 'font-size': '25px', 'font-weight': 'bold', 'white-space': 'nowrap'}), width=12),
-    #     ], className="mb-2"),
-
-    #     dbc.Row([
-    #         dbc.Col(html.Div("2x2 meters:", style={
-    #             'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-    #         dbc.Col(dcc.Input(id='2x2-perimeter-count', type='text', placeholder="booth count",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #         dbc.Col(width=1),
-    #         dbc.Col(dcc.Input(id='2x2-perimeter-total', type='text', placeholder="total",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #     ], className="mb-2"),
-
-    #     dbc.Row([
-    #         dbc.Col(html.Div("2x3 meters:", style={
-    #             'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-    #         dbc.Col(dcc.Input(id='2x3-perimeter-count', type='text', placeholder="booth count",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #         dbc.Col(width=1),
-    #         dbc.Col(dcc.Input(id='2x3-perimeter-total', type='text', placeholder="total",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #     ], className="mb-2"),
-
-    #     dbc.Row([
-    #         dbc.Col(html.Div("3x3 meters:", style={
-    #             'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-    #         dbc.Col(dcc.Input(id='3x3-perimeter-count', type='text', placeholder="booth count",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #         dbc.Col(width=1),
-    #         dbc.Col(dcc.Input(id='3x3-perimeter-total', type='text', placeholder="total",
-    #                           style={'font-family': 'Tahoma', 'width': '100px'}), width=3),
-    #     ], className="mb-2"),
-
-    #     html.Br(),
-    #     html.Br(),
-    #     html.Br(),
-    #     html.Br(),
-    #     html.Br(),
-    #     html.Br(),
-    #     html.Br(),
-    #     html.Br(),
-
-    #     dbc.Row([
-    #         dbc.Col(html.Div("Prepared by:", style={
-    #             'font-family': 'Tahoma', 'font-weight': 'bold', 'font-size': '18px'}), width=5),
-    #         dbc.Col(dcc.Input(id='prepared-by', type='text', placeholder="",
-    #                           style={'font-family': 'Tahoma', 'width': '210px'}), width=3),
-    #     ], className="mb-2")
-    # ], width=2, style={'margin-left': '-500px', 'margin-top': '230px'})
+            # Perimeter booth
+            dbc.Col([
+                dbc.Row(html.H3("Perimeter Booth Requirements:", style=FORM_GROUP_HEADER_STYLE)),
+                dbc.Row([
+                    dbc.Col(),
+                    dbc.Col(html.H3("Booth Count", style=LABEL_STYLE)),
+                    dbc.Col(html.H3("Total Count", style=LABEL_STYLE)),
+                ]),
+                dbc.Row([
+                    dbc.Col(html.H3("2 x 2 meters", style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(
+                        id='perimeter-booth-2x2', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    )),
+                    dbc.Col(dcc.Input(
+                        id='perimeter-total-2x2', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    ))
+                ]),
+                dbc.Row([
+                    dbc.Col(html.H3("2 x 3 meters", style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(
+                        id='perimeter-booth-2x3', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    )),
+                    dbc.Col(dcc.Input(
+                        id='perimeter-total-2x3', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    ))
+                ]),
+                dbc.Row([
+                    dbc.Col(html.H3("3 x 3 meters", style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(
+                        id='perimeter-booth-3x3', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    )),
+                    dbc.Col(dcc.Input(
+                        id='perimeter-total-3x3', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
+                    ))
+                ])
+            ])
+        ]),
+    ], style={'margin-top': '20px'})

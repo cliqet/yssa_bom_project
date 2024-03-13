@@ -1,8 +1,7 @@
 from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
+from constants.styles import LABEL_STYLE, INPUT_STYLE, FORM_GROUP_HEADER_STYLE
 
-LABEL_STYLE = {'font-family': 'Tahoma', 'font-size': '16px'}
-INPUT_STYLE = {'font-family': 'Tahoma', 'width': '200px'}
 
 def render(app: Dash) -> dbc.Col:
     return dbc.Col([
@@ -62,35 +61,34 @@ def render(app: Dash) -> dbc.Col:
 
             # Column for upload button
             dbc.Col(
-            dcc.Upload(
-                id='upload-layout',
-                children=html.Button('Upload Layout', style={
-                    'font-family': 'Tahoma',
-                    'font-weight': 'bold',
-                    'color': 'white',
-                    'background-color': 'rgb(37,80,45)',
-                    'border': 'none',
-                    'padding': '10px 20px',
-                    'border-radius': '5px',
-                    'margin-left': '200px',
-                }),
-                style={
-                    'borderStyle': 'none',
-                    'display': 'inline-block',
-                    'width': '100%',
-                    'height': 'auto'
-                }
+                dcc.Upload(
+                    id='upload-layout',
+                    children=html.Button('Upload Layout', style={
+                        'font-family': 'Tahoma',
+                        'font-weight': 'bold',
+                        'color': 'white',
+                        'background-color': 'rgb(37,80,45)',
+                        'border': 'none',
+                        'padding': '10px 20px',
+                        'border-radius': '5px',
+                        'display': 'flex',
+                        'margin-left': 'auto'
+                    }),
+                    style={
+                        'borderStyle': 'none',
+                        'display': 'inline-block',
+                        'width': '100%',
+                        'height': 'auto'
+                    }
+                )
             )
-        )
         ]),
 
         # Second row
         dbc.Row([
             # Event details
             dbc.Col([
-                dbc.Row(html.H3("Event Details:", style={
-                    'font-family': 'Tahoma', 'font-size': '20px', 'font-weight': 'bold'
-                })),
+                dbc.Row(html.H3("Event Details:", style=FORM_GROUP_HEADER_STYLE)),
                 dbc.Row([
                     dbc.Col(html.H3("Event Name", style=LABEL_STYLE)),
                     dbc.Col(dcc.Input(
@@ -119,9 +117,7 @@ def render(app: Dash) -> dbc.Col:
             
             # Client details
             dbc.Col([
-                dbc.Row(html.H3("Client Details:", style={
-                    'font-family': 'Tahoma', 'font-size': '20px', 'font-weight': 'bold'
-                })),
+                dbc.Row(html.H3("Client Details:", style=FORM_GROUP_HEADER_STYLE)),
                 dbc.Row([
                     dbc.Col(html.H3("Company Name:", style=LABEL_STYLE)),
                     dbc.Col(dcc.Input(
@@ -150,9 +146,7 @@ def render(app: Dash) -> dbc.Col:
 
             # Setup schedule
             dbc.Col([
-                dbc.Row(html.H3("Setup Schedule:", style={
-                    'font-family': 'Tahoma', 'font-size': '20px', 'font-weight': 'bold'
-                })),
+                dbc.Row(html.H3("Setup Schedule:", style=FORM_GROUP_HEADER_STYLE)),
                 dbc.Row([
                     dbc.Col(html.H3("Ingress Date:", style=LABEL_STYLE)),
                     dbc.Col(dcc.Input(

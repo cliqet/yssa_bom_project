@@ -74,7 +74,7 @@ def render(app: Dash) -> dbc.Col:
         'border-right': '3px solid black',
         'border-left': '3px solid black',
         'border-bottom': '3px solid black',
-        'height': 'calc(100vh)',
+        'height': '120vh',
         'width': '200px',
         'display': 'inline-block',
         'vertical-align': 'top',
