@@ -3,6 +3,7 @@ from dash import dash_table
 import dash_bootstrap_components as dbc
 
 # Define Table
+# TODO: get data from db
 table_data = [
     {'ID': '',
      'Employee Name': '',

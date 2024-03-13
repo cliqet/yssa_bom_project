@@ -8,6 +8,7 @@ class Configuration:
 
         host: str = _app_config.get('host')
         port: int = _app_config.get('port')
+        debug: bool = _app_config.get('debug')
 
     class Database:
         class PSQL:

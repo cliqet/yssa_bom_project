@@ -7,7 +7,7 @@ def render(app: Dash) -> dbc.Col:
         dbc.Row([
             dbc.Col(html.H3("JO No.:", style={
                 'font-family': 'Tahoma', 'font-size': '25px', 'font-weight': 'bold'}), width=2, className="d-flex align-items-center"),
-            dbc.Col(dcc.Input(id='jo-no', type='text', placeholder="",
+            dbc.Col(dcc.Input(id='jo-no', type='text', placeholder="Enter J.O. Number",
                               style={'font-family': 'Tahoma', 'width': '300px'}, className='mb-2'), width=4),
         ]),
 
