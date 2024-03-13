@@ -51,10 +51,11 @@ def render(app: Dash) -> dbc.Col:
                         html.H3("Date Created:", style=LABEL_STYLE)
                     ),
                     dbc.Col(
-                        dcc.DatePickerSingle(
-                            id='date-created',
-                            date=datetime.now().strftime('%Y-%m-%d'),
-                            style={**INPUT_STYLE},
+                        dcc.Input(
+                            id='date-created', 
+                            type='date',
+                            value=datetime.now().strftime('%Y-%m-%d'), 
+                            style=INPUT_STYLE, 
                             className='mb-2'
                         )
                     )
@@ -106,10 +107,11 @@ def render(app: Dash) -> dbc.Col:
                 dbc.Row([
                     dbc.Col(html.H3("Event Start Date:", style=LABEL_STYLE)),
                     dbc.Col(
-                        dcc.DatePickerSingle(
-                            id='event-start-date',
-                            date=datetime.now().strftime('%Y-%m-%d'),
-                            style={**INPUT_STYLE},
+                        dcc.Input(
+                            id='event-start-date', 
+                            type='date',
+                            value=datetime.now().strftime('%Y-%m-%d'), 
+                            style=INPUT_STYLE, 
                             className='mb-2'
                         )
                     )
@@ -117,10 +119,11 @@ def render(app: Dash) -> dbc.Col:
                 dbc.Row([
                     dbc.Col(html.H3("Event End Date:", style=LABEL_STYLE)),
                     dbc.Col(
-                        dcc.DatePickerSingle(
-                            id='event-end-date',
-                            date=datetime.now().strftime('%Y-%m-%d'),
-                            style={**INPUT_STYLE},
+                        dcc.Input(
+                            id='event-end-date', 
+                            type='date',
+                            value=datetime.now().strftime('%Y-%m-%d'), 
+                            style=INPUT_STYLE, 
                             className='mb-2'
                         )
                     )
@@ -162,31 +165,50 @@ def render(app: Dash) -> dbc.Col:
                 dbc.Row([
                     dbc.Col(html.H3("Ingress Date:", style=LABEL_STYLE)),
                     dbc.Col(
-                        dcc.DatePickerSingle(
-                            id='ingress-date',
-                            date=datetime.now().strftime('%Y-%m-%d'),
-                            style={**INPUT_STYLE},
+                        dcc.Input(
+                            id='ingress-date', 
+                            type='date',
+                            value=datetime.now().strftime('%Y-%m-%d'), 
+                            style=INPUT_STYLE, 
                             className='mb-2'
                         )
                     )
                 ]),
                 dbc.Row([
                     dbc.Col(html.H3("Ingress Time:", style=LABEL_STYLE)),
-                    dbc.Col(dcc.Input(
-                        id='ingress-time', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
-                    ))
+                    dbc.Col(
+                        dcc.Input(
+                            id='ingress-time', 
+                            type='time',
+                            value=datetime.strptime('12:00', '%H:%M').strftime('%H:%M'),
+                            style=INPUT_STYLE, 
+                            className='mb-2'
+                        )
+                    )
                 ]),
                 dbc.Row([
                     dbc.Col(html.H3("Egress Date:", style=LABEL_STYLE)),
-                    dbc.Col(dcc.Input(
-                        id='egress-date', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
-                    ))
+                    dbc.Col(
+                        dcc.Input(
+                            id='egress-date', 
+                            type='date',
+                            value=datetime.now().strftime('%Y-%m-%d'), 
+                            style=INPUT_STYLE, 
+                            className='mb-2'
+                        )
+                    )
                 ]),
                 dbc.Row([
                     dbc.Col(html.H3("Egress Time:", style=LABEL_STYLE)),
-                    dbc.Col(dcc.Input(
-                        id='egress-time', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
-                    ))
+                    dbc.Col(
+                        dcc.Input(
+                            id='egress-time', 
+                            type='time',
+                            value=datetime.strptime('12:00', '%H:%M').strftime('%H:%M'),
+                            style=INPUT_STYLE, 
+                            className='mb-2'
+                        )
+                    )
                 ])
             ]),
         ], style={'margin-top': '20px'})
