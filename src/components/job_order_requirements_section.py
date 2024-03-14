@@ -1,6 +1,11 @@
 from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
-from constants.styles import LABEL_STYLE, INPUT_STYLE, FORM_GROUP_HEADER_STYLE
+from constants.styles import (
+    LABEL_STYLE, 
+    INPUT_STYLE, 
+    FORM_GROUP_HEADER_STYLE,
+    BUTTON_STYLE
+)
 from database.get_employees import get_employee_names
 
 employee_names: list[dict] = get_employee_names()
@@ -78,16 +83,7 @@ def render(app: Dash) -> dbc.Col:
                     #     id='prepared-bys', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
                     # )),
                     dbc.Col(
-                        html.Button('Save', style={
-                            'font-family': 'Tahoma',
-                            'font-weight': 'bold',
-                            'color': 'white',
-                            'background-color': 'rgb(37,80,45)',
-                            'border': 'none',
-                            'padding': '10px 20px',
-                            'border-radius': '5px',
-                            'width': '200px'
-                        })
+                        html.Button('Save', style=BUTTON_STYLE)
                     )
                 ], style={'margin-top': '30px', 'margin-bottom': '20px'})              
         ]),
