@@ -79,6 +79,8 @@ def render() -> dbc.Col:
             )
         ], style={'display': 'flex'}),
 
+        html.Hr(),
+        
         dbc.Row([
             dbc.Col(
                 dbc.Row([

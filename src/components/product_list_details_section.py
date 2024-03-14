@@ -24,7 +24,7 @@ table_columns = [
 def render() -> dbc.Col:
     return dbc.Col([
     dbc.Row([
-        dbc.Col(html.H3("Product List:", style={'font-family': 'Tahoma', 'font-size': '25px', 'font-weight': 'bold'}), width=2, className="d-flex align-items-center"),
+        dbc.Col(html.H3("Product List:", style={'font-family': 'Tahoma', 'font-size': '25px', 'font-weight': 'bold'}), className="d-flex align-items-center"),
     ]),
 
     dbc.Row([

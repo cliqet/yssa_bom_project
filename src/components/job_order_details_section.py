@@ -1,5 +1,5 @@
 from datetime import datetime
-from dash import Dash, html, dcc
+from dash import html, dcc
 import dash_bootstrap_components as dbc
 from constants.styles import (
     LABEL_STYLE, 
@@ -85,6 +85,8 @@ def render() -> dbc.Col:
             )
         ]),
 
+        html.Hr(),
+        
         # Second row
         dbc.Row([
             # Event details
@@ -209,5 +211,7 @@ def render() -> dbc.Col:
                     )
                 ])
             ]),
-        ], style={'margin-top': '20px'})
+        ], style={'margin-top': '20px'}),
+    
+        html.Hr()
     ])

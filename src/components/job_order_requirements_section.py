@@ -79,9 +79,6 @@ def render() -> dbc.Col:
                             style=INPUT_STYLE
                         )
                     ),
-                    # dbc.Col(dcc.Input(
-                    #     id='prepared-bys', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
-                    # )),
                     dbc.Col(
                         html.Button('Save', style=BUTTON_STYLE)
                     )

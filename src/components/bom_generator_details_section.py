@@ -51,6 +51,8 @@ def render() -> dbc.Col:
             )
         ]),
 
+        html.Hr(),
+        
         dbc.Row([
             # Event details
             dbc.Col([
@@ -198,5 +200,8 @@ def render() -> dbc.Col:
                     )
                 ])
             ]),
-        ], style={'margin-top': '20px'})
+        ], style={'margin-top': '20px'}),
+    
+        html.Hr()
+
     ])
