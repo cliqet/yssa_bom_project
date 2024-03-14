@@ -1,102 +1,114 @@
 from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
+from constants.styles import (
+    BUTTON_STYLE, 
+    FORM_GROUP_HEADER_STYLE, 
+    LABEL_STYLE,
+    INPUT_STYLE
+)
+from database.get_employees import get_employee_names
+
+employee_names: list[dict] = get_employee_names()
 
 
 def render(app: Dash) -> dbc.Col:
     return dbc.Col([
-    
-# Cluster Booth Requirements
-    dbc.Row([
-        dbc.Col(html.H3("RM Count Summary List:", style={'font-family': 'Tahoma', 'font-size': '25px', 'font-weight': 'bold', 'white-space': 'nowrap'}), width=12),
-    ], className="mb-2"),
+        dbc.Row([
+            dbc.Col([
+                dbc.Row([
+                    dbc.Col(html.H3('RM Summary List', style=FORM_GROUP_HEADER_STYLE)),
+                    dbc.Col(html.H3('Count (pc)', style=LABEL_STYLE)),
+                    dbc.Col(html.H3('Contingency', style=LABEL_STYLE)),
+                    dbc.Col(html.H3('Total Count (pc)', style=LABEL_STYLE)),
+                ]),
 
-    dbc.Row([
-        dbc.Col(html.Div("Post:", style={'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-        dbc.Col(dcc.Input(id='post-count', type='text', placeholder="count", style={'font-family': 'Tahoma', 'width': '80px'}), width=1),
-        dbc.Col(width=1),
-        dbc.Col(dcc.Input(id='post-contingency', type='text', placeholder="%", style={'font-family': 'Tahoma', 'width': '40px'}), width=1),
-        dbc.Col(width=1),
-        dbc.Col(dcc.Input(id='post-total', type='text', placeholder="total", style={'font-family': 'Tahoma', 'width': '100px'}), width=1),
-    ], className="mb-2"),
+                dbc.Row([
+                    dbc.Col(html.H3('Post:', style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(id='post-count', style=INPUT_STYLE, className='mb-2')),
+                    dbc.Col(dcc.Input(id='post-contingency', style=INPUT_STYLE, className='mb-2')),
+                    dbc.Col(dcc.Input(id='post-total-count', style=INPUT_STYLE, className='mb-2'))
+                ]),
 
-    dbc.Row([
-        dbc.Col(html.Div("Panel", style={'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-        dbc.Col(dcc.Input(id='panel-count', type='text', placeholder="count", style={'font-family': 'Tahoma', 'width': '80px'}), width=1),
-        dbc.Col(width=1),
-        dbc.Col(dcc.Input(id='panel-contingency', type='text', placeholder="%", style={'font-family': 'Tahoma', 'width': '40px'}), width=1),
-        dbc.Col(width=1),
-        dbc.Col(dcc.Input(id='panel-total', type='text', placeholder="total", style={'font-family': 'Tahoma', 'width': '100px'}), width=1),
-    ], className="mb-2"),
+                dbc.Row([
+                    dbc.Col(html.H3('Panel:', style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(id='panel-count', style=INPUT_STYLE, className='mb-2')),
+                    dbc.Col(dcc.Input(id='panel-contingency', style=INPUT_STYLE, className='mb-2')),
+                    dbc.Col(dcc.Input(id='panel-total-count', style=INPUT_STYLE, className='mb-2'))
+                ]),
 
-    dbc.Row([
-        dbc.Col(html.Div("Beam", style={'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-        dbc.Col(dcc.Input(id='beam-count', type='text', placeholder="count", style={'font-family': 'Tahoma', 'width': '80px'}), width=1),
-        dbc.Col(width=1),
-        dbc.Col(dcc.Input(id='beam-contingency', type='text', placeholder="%", style={'font-family': 'Tahoma', 'width': '40px'}), width=1),
-        dbc.Col(width=1),
-        dbc.Col(dcc.Input(id='beam-total', type='text', placeholder="total", style={'font-family': 'Tahoma', 'width': '100px'}), width=1),
-    ], className="mb-2"),
+                dbc.Row([
+                    dbc.Col(html.H3('Beam:', style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(id='beam-count', style=INPUT_STYLE, className='mb-2')),
+                    dbc.Col(dcc.Input(id='beam,-contingency', style=INPUT_STYLE, className='mb-2')),
+                    dbc.Col(dcc.Input(id='beam-total-count', style=INPUT_STYLE, className='mb-2'))
+                ]),
 
-    dbc.Row([
-        dbc.Col(html.Div("Facia Length", style={'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-        dbc.Col(dcc.Input(id='facia-length-count', type='text', placeholder="count", style={'font-family': 'Tahoma', 'width': '80px'}), width=1),
-        dbc.Col(width=1),
-        dbc.Col(dcc.Input(id='facia-length-contingency', type='text', placeholder="%", style={'font-family': 'Tahoma', 'width': '40px'}), width=1),
-        dbc.Col(width=1),
-        dbc.Col(dcc.Input(id='facia-length-total', type='text', placeholder="total", style={'font-family': 'Tahoma', 'width': '100px'}), width=1),
-    ], className="mb-2"),
-    
-    dbc.Row([
-        dbc.Col(html.Div("Facia Width", style={'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-        dbc.Col(dcc.Input(id='facia-width-count', type='text', placeholder="count", style={'font-family': 'Tahoma', 'width': '80px'}), width=1),
-        dbc.Col(width=1),
-        dbc.Col(dcc.Input(id='facia-width-contingency', type='text', placeholder="%", style={'font-family': 'Tahoma', 'width': '40px'}), width=1),
-        dbc.Col(width=1),
-        dbc.Col(dcc.Input(id='facia-width-total', type='text', placeholder="total", style={'font-family': 'Tahoma', 'width': '100px'}), width=1),
-    ], className="mb-2"),
-    
-    dbc.Row([
-        dbc.Col(html.Div("Corner Length Beam:", style={'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-        dbc.Col(dcc.Input(id='corner-length-count', type='text', placeholder="count", style={'font-family': 'Tahoma', 'width': '80px'}), width=1),
-        dbc.Col(width=1),
-        dbc.Col(dcc.Input(id='corner-length-contingency', type='text', placeholder="%", style={'font-family': 'Tahoma', 'width': '40px'}), width=1),
-        dbc.Col(width=1),
-        dbc.Col(dcc.Input(id='corner-length-total', type='text', placeholder="total", style={'font-family': 'Tahoma', 'width': '100px'}), width=1),
-    ], className="mb-2"),
-    
-    dbc.Row([
-        dbc.Col(html.Div("Corner Width Beam", style={'font-family': 'Tahoma', 'font-size': '18px'}), width=5),
-        dbc.Col(dcc.Input(id='corner-width-count', type='text', placeholder="count", style={'font-family': 'Tahoma', 'width': '80px'}), width=1),
-        dbc.Col(width=1),
-        dbc.Col(dcc.Input(id='corner-width-contingency', type='text', placeholder="%", style={'font-family': 'Tahoma', 'width': '40px'}), width=1),
-        dbc.Col(width=1),
-        dbc.Col(dcc.Input(id='corner-width-total', type='text', placeholder="total", style={'font-family': 'Tahoma', 'width': '100px'}), width=1),
-    ], className="mb-2"),
+                dbc.Row([
+                    dbc.Col(html.H3('Facia Length:', style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(id='facia-length-count', style=INPUT_STYLE, className='mb-2')),
+                    dbc.Col(dcc.Input(id='facia-length-contingency', style=INPUT_STYLE, className='mb-2')),
+                    dbc.Col(dcc.Input(id='facia-length-total-count', style=INPUT_STYLE, className='mb-2'))
+                ]),
+                
+                dbc.Row([
+                    dbc.Col(html.H3('Facia Width:', style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(id='facia-width-count', style=INPUT_STYLE, className='mb-2')),
+                    dbc.Col(dcc.Input(id='facia-width-contingency', style=INPUT_STYLE, className='mb-2')),
+                    dbc.Col(dcc.Input(id='facia-width-total-count', style=INPUT_STYLE, className='mb-2'))
+                ]),
 
-html.Br(),
-html.Br(),
-html.Br(),
-html.Br(),
-html.Br(),
-html.Br(),
-html.Br(),
-html.Br(),
+                dbc.Row([
+                    dbc.Col(html.H3('Corner Length Beam:', style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(id='corner-length-beam-count', style=INPUT_STYLE, className='mb-2')),
+                    dbc.Col(dcc.Input(id='corner-length-beam-contingency', style=INPUT_STYLE, className='mb-2')),
+                    dbc.Col(dcc.Input(id='corner-length-beam-total-count', style=INPUT_STYLE, className='mb-2'))
+                ]),
 
-    dbc.Row([
-        dbc.Col(html.Div("Prepared by:", style={'font-family': 'Tahoma', 'font-weight': 'bold', 'font-size': '18px'}), width=5),
-        dbc.Col(dcc.Input(id='prepared-by', type='text', placeholder="", style={'font-family': 'Tahoma', 'width': '210px'}), width=3),
-        ], className="mb-2"),
-    
-    dbc.Row([
-        dbc.Col(html.Div("Reviewed by:", style={'font-family': 'Tahoma', 'font-weight': 'bold', 'font-size': '18px'}), width=5),
-        dbc.Col(dcc.Input(id='reviewed-by', type='text', placeholder="", style={'font-family': 'Tahoma', 'width': '210px'}), width=3),
-        ], className="mb-2"),
-    
-    dbc.Row([
-        dbc.Col(html.Div("Approved by:", style={'font-family': 'Tahoma', 'font-weight': 'bold', 'font-size': '18px'}), width=5),
-        dbc.Col(dcc.Input(id='approved-by', type='text', placeholder="", style={'font-family': 'Tahoma', 'width': '210px'}), width=3),
-        ], className="mb-2"),
+                dbc.Row([
+                    dbc.Col(html.H3('Corner Width Beam:', style=LABEL_STYLE)),
+                    dbc.Col(dcc.Input(id='corner-width-beam-count', style=INPUT_STYLE, className='mb-2')),
+                    dbc.Col(dcc.Input(id='corner-width-beam-contingency', style=INPUT_STYLE, className='mb-2')),
+                    dbc.Col(dcc.Input(id='corner-width-beam-total-count', style=INPUT_STYLE, className='mb-2'))
+                ]),
 
+            ], style={'flex': '3'}),
 
-    
-], width=3, style={'margin-left': '-500px', 'margin-top': '230px'})
+            dbc.Col(
+                html.Button('Calculate BOM', style=BUTTON_STYLE),
+                style={'flex': '1'}
+            )
+        ], style={'display': 'flex'}),
+
+        dbc.Row([
+            dbc.Col(
+                dbc.Row([
+                    dbc.Col(dbc.Col(html.H3('Reviewed by:', style=LABEL_STYLE))),
+                    dbc.Col(
+                        dcc.Dropdown(
+                            id='reviewer',
+                            options=employee_names,
+                            value=employee_names[0].get('value'),
+                            style=INPUT_STYLE,
+                            className='mb-2'
+                        )
+                    ),
+                    dbc.Col()
+                ], style={'display': 'flex', 'align-items': 'center'})
+            ),
+            dbc.Col(
+                dbc.Row([
+                    dbc.Col(dbc.Col(html.H3('Approved by:', style=LABEL_STYLE))),
+                    dbc.Col(
+                        dcc.Dropdown(
+                            id='approver',
+                            options=employee_names,
+                            value=employee_names[0].get('value'),
+                            style=INPUT_STYLE,
+                            className='mb-2'
+                        )
+                    ),
+                    dbc.Col(html.Button('Save', style=BUTTON_STYLE))
+                ], style={'display': 'flex', 'align-items': 'center'})
+            )
+        ], style={'margin-top': '30px'})
+    ], style={'margin-top': '30px'})

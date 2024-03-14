@@ -1,7 +1,13 @@
 from datetime import datetime
 from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
-from constants.styles import LABEL_STYLE, INPUT_STYLE, FORM_GROUP_HEADER_STYLE
+from constants.styles import (
+    LABEL_STYLE, 
+    INPUT_STYLE, 
+    FORM_GROUP_HEADER_STYLE, 
+    PAGE_HEADER_STYLE,
+    BUTTON_STYLE
+)
 from database.get_employees import get_employee_names
 
 employee_names: list[dict] = get_employee_names()
@@ -14,9 +20,7 @@ def render(app: Dash) -> dbc.Col:
                 # JO field row
                 dbc.Row([
                     dbc.Col(
-                        html.H3("JO No.:", style={
-                            'font-family': 'Tahoma', 'font-size': '25px', 'font-weight': 'bold'}
-                        )
+                        html.H3("JO No.:", style=PAGE_HEADER_STYLE)
                     ),
                     dbc.Col(
                         dcc.Input(
@@ -67,16 +71,10 @@ def render(app: Dash) -> dbc.Col:
                 dcc.Upload(
                     id='upload-layout',
                     children=html.Button('Upload Layout', style={
-                        'font-family': 'Tahoma',
-                        'font-weight': 'bold',
-                        'color': 'white',
-                        'background-color': 'rgb(37,80,45)',
-                        'border': 'none',
-                        'padding': '10px 20px',
-                        'border-radius': '5px',
+                        **BUTTON_STYLE,
                         'display': 'flex',
                         'margin-left': 'auto'
-                    }),
+                        }),
                     style={
                         'borderStyle': 'none',
                         'display': 'inline-block',
