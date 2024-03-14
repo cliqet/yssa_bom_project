@@ -11,7 +11,7 @@ from database.get_employees import get_employee_names
 employee_names: list[dict] = get_employee_names()
 
 
-def render(app: Dash) -> dbc.Col:
+def render() -> dbc.Col:
     return dbc.Col([
         dbc.Row([
             dbc.Col([

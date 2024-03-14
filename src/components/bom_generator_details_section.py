@@ -27,7 +27,7 @@ job_order_details = {
 }
 
 
-def render(app: Dash) -> dbc.Col:
+def render() -> dbc.Col:
     return dbc.Col([
         dbc.Row([
             dbc.Col(html.H3("Standard Booth BOM", style=PAGE_HEADER_STYLE)),

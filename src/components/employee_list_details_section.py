@@ -73,7 +73,7 @@ table_columns = [
     
 ]
 
-def render(app: Dash) -> dbc.Col:
+def render() -> dbc.Col:
     return dbc.Col([
     dbc.Row([
         dbc.Col(html.H3("Employee List:", style={'font-family': 'Tahoma', 'font-size': '25px', 'font-weight': 'bold'}), width=2, className="d-flex align-items-center"),

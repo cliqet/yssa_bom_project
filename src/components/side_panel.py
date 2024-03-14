@@ -2,9 +2,9 @@ from dash import Dash, dcc
 import dash_bootstrap_components as dbc
 
 
-def render(app: Dash) -> dbc.Col:
+def render() -> dbc.Col:
     return dbc.Col([
-        dcc.Link('Job Order', href='/joborder', id='joborder', style={
+        dcc.Link('Job Order', href='/', id='joborder', style={
             'display': 'block',
             'margin': '8px',
             'font-size': '20px',
@@ -80,5 +80,5 @@ def render(app: Dash) -> dbc.Col:
         'vertical-align': 'top',
         'padding': '8px',
         'background-color': 'rgb(216,231,214)',
-        'box-sizing': 'border-box',
+        'box-sizing': 'border-box'
     }, width=2)
