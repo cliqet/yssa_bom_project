@@ -10,7 +10,7 @@ from database.get_employees import get_employee_names
 
 employee_names: list[dict] = get_employee_names()
 
-def render(app: Dash) -> dbc.Col:
+def render() -> dbc.Col:
     return dbc.Col([
         # Requirement inputs section
         dbc.Row([
@@ -79,9 +79,6 @@ def render(app: Dash) -> dbc.Col:
                             style=INPUT_STYLE
                         )
                     ),
-                    # dbc.Col(dcc.Input(
-                    #     id='prepared-bys', type='text', placeholder="", style=INPUT_STYLE, className='mb-2'
-                    # )),
                     dbc.Col(
                         html.Button('Save', style=BUTTON_STYLE)
                     )

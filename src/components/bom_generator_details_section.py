@@ -27,7 +27,7 @@ job_order_details = {
 }
 
 
-def render(app: Dash) -> dbc.Col:
+def render() -> dbc.Col:
     return dbc.Col([
         dbc.Row([
             dbc.Col(html.H3("Standard Booth BOM", style=PAGE_HEADER_STYLE)),
@@ -51,6 +51,8 @@ def render(app: Dash) -> dbc.Col:
             )
         ]),
 
+        html.Hr(),
+        
         dbc.Row([
             # Event details
             dbc.Col([
@@ -198,5 +200,8 @@ def render(app: Dash) -> dbc.Col:
                     )
                 ])
             ]),
-        ], style={'margin-top': '20px'})
+        ], style={'margin-top': '20px'}),
+    
+        html.Hr()
+
     ])

@@ -12,3 +12,18 @@ BUTTON_STYLE = {
     'border-radius': '5px'
 }
 PAGE_PADDING_STYLE = {'padding-top': '10px', 'padding-horizontal': '15px'}
+TABLE_STYLE = {'height': '100%', 'overflowX': 'auto'}
+TABLE_CELL_STYLE = {
+    'height': 'auto',
+    'width': '15px', 
+    'maxWidth': '150px',
+    'whiteSpace': 'normal',
+    'font-size': '14px',
+    'font-family': 'Arial, sans-serif',
+    'textAlign': 'center',
+}
+TABLE_HEADER_STYLE = {
+    'backgroundColor': 'white',
+    'fontWeight': 'bold',
+    'textAlign': 'center',
+}

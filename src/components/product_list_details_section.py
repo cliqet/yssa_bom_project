@@ -1,6 +1,7 @@
-from dash import Dash, html, dcc
+from dash import html
 from dash import dash_table
 import dash_bootstrap_components as dbc
+from constants.styles import TABLE_HEADER_STYLE, TABLE_CELL_STYLE, TABLE_STYLE
 
 # Define Table
 table_data = [
@@ -21,10 +22,10 @@ table_columns = [
     {'name': 'Description', 'id' : 'Description'},
 ]
 
-def render(app: Dash) -> dbc.Col:
+def render() -> dbc.Col:
     return dbc.Col([
     dbc.Row([
-        dbc.Col(html.H3("Product List:", style={'font-family': 'Tahoma', 'font-size': '25px', 'font-weight': 'bold'}), width=2, className="d-flex align-items-center"),
+        dbc.Col(html.H3("Product List:", style={'font-family': 'Tahoma', 'font-size': '25px', 'font-weight': 'bold'}), className="d-flex align-items-center"),
     ]),
 
     dbc.Row([
@@ -34,22 +35,10 @@ def render(app: Dash) -> dbc.Col:
             data=table_data,
             editable=False,
             page_size=30,
-            style_table={'height': '950px', 'overflowX': 'auto'},
-            style_cell={
-                'height': 'auto',
-                'minWidth': '150px', 'width': '15px', 'maxWidth': '150px',
-                'whiteSpace': 'normal',
-                'font-size': '14px',
-                'font-family': 'Arial, sans-serif',
-                'textAlign': 'left',
-            },
-            
-            style_header={
-                'backgroundColor': 'white',
-                'fontWeight': 'bold',
-                'textAlign': 'center',
-            },
+            style_table=TABLE_STYLE,
+            style_cell=TABLE_CELL_STYLE,
+            style_header=TABLE_HEADER_STYLE,
         ), width=12),
     ]),
     
-], width=10, style={'margin-top': '20px'})
+], width=10, style={'margin-top': '20px', 'height': '100%', 'width': '100%'})

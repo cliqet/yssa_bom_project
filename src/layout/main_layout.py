@@ -1,10 +1,13 @@
-from dash import Dash, html
+import dash
+from dash import html, dcc
 import dash_bootstrap_components as dbc
-from components import side_panel, main_content
+from components import side_panel
 
 
-def render_layout(app: Dash) -> dbc.Container:
+def render_layout() -> dbc.Container:
     return dbc.Container([
+        dcc.Location(id='url', refresh=False),
+
         # Header
         dbc.Row([
             dbc.Col(html.Img(src='/assets/msdlogo.png', style={
@@ -37,8 +40,8 @@ def render_layout(app: Dash) -> dbc.Container:
         }),
 
         dbc.Row([
-            side_panel.render(app),
-            main_content.render(app)
-        ])
+            dbc.Col(side_panel.render(), style={'flex': '1', 'padding': '0px'}),
+            dbc.Col(dash.page_container, style={'flex': '6'})
+        ], style={'display': 'flex'})
 
     ], fluid=True)

@@ -1,5 +1,5 @@
 from datetime import datetime
-from dash import Dash, html, dcc
+from dash import html, dcc
 import dash_bootstrap_components as dbc
 from constants.styles import (
     LABEL_STYLE, 
@@ -12,7 +12,7 @@ from database.get_employees import get_employee_names
 
 employee_names: list[dict] = get_employee_names()
 
-def render(app: Dash) -> dbc.Col:
+def render() -> dbc.Col:
     return dbc.Col([
         # First row
         dbc.Row([
@@ -85,6 +85,8 @@ def render(app: Dash) -> dbc.Col:
             )
         ]),
 
+        html.Hr(),
+        
         # Second row
         dbc.Row([
             # Event details
@@ -209,5 +211,7 @@ def render(app: Dash) -> dbc.Col:
                     )
                 ])
             ]),
-        ], style={'margin-top': '20px'})
+        ], style={'margin-top': '20px'}),
+    
+        html.Hr()
     ])
