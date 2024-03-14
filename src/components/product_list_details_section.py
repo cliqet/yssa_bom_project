@@ -1,6 +1,7 @@
-from dash import Dash, html, dcc
+from dash import html
 from dash import dash_table
 import dash_bootstrap_components as dbc
+from constants.styles import TABLE_HEADER_STYLE, TABLE_CELL_STYLE, TABLE_STYLE
 
 # Define Table
 table_data = [
@@ -34,21 +35,9 @@ def render() -> dbc.Col:
             data=table_data,
             editable=False,
             page_size=30,
-            style_table={'height': '100%', 'overflowX': 'auto'},
-            style_cell={
-                'height': 'auto',
-                'minWidth': '150px', 'width': '15px', 'maxWidth': '150px',
-                'whiteSpace': 'normal',
-                'font-size': '14px',
-                'font-family': 'Arial, sans-serif',
-                'textAlign': 'left',
-            },
-            
-            style_header={
-                'backgroundColor': 'white',
-                'fontWeight': 'bold',
-                'textAlign': 'center',
-            },
+            style_table=TABLE_STYLE,
+            style_cell=TABLE_CELL_STYLE,
+            style_header=TABLE_HEADER_STYLE,
         ), width=12),
     ]),
     
