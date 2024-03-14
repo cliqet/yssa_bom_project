@@ -74,7 +74,7 @@ def render() -> dbc.Col:
         'border-right': '3px solid black',
         'border-left': '3px solid black',
         'border-bottom': '3px solid black',
-        'height': '120vh',
+        'height': '130vh',
         'width': '200px',
         'display': 'inline-block',
         'vertical-align': 'top',

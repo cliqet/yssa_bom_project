@@ -34,7 +34,7 @@ def render() -> dbc.Col:
             data=table_data,
             editable=False,
             page_size=30,
-            style_table={'height': '950px', 'overflowX': 'auto'},
+            style_table={'height': '100%', 'overflowX': 'auto'},
             style_cell={
                 'height': 'auto',
                 'minWidth': '150px', 'width': '15px', 'maxWidth': '150px',
@@ -52,4 +52,4 @@ def render() -> dbc.Col:
         ), width=12),
     ]),
     
-], width=10, style={'margin-top': '20px'})
+], width=10, style={'margin-top': '20px', 'height': '100%', 'width': '100%'})
