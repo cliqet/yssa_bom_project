@@ -12,3 +12,7 @@ __pycache__/
 /*config.toml
 src/config.toml
 
+src/database/csv_files/
+src/database/csv_files/*
+
+
