@@ -8,7 +8,7 @@ from constants.styles import (
 )
 from database.get_employees import get_employee_names
 
-employee_names: list[dict] = get_employee_names()
+employee_names: list[dict] = []
 
 def render() -> dbc.Col:
     return dbc.Col([
@@ -75,7 +75,7 @@ def render() -> dbc.Col:
                         dcc.Dropdown(
                             id='prepared-by',
                             options=employee_names,
-                            value=employee_names[0].get('value'),
+                            value='test',
                             style=INPUT_STYLE
                         )
                     ),

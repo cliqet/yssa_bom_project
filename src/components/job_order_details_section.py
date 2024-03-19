@@ -1,5 +1,5 @@
 from datetime import datetime
-from dash import html, dcc
+from dash import html, dcc, callback, Output, Input
 import dash_bootstrap_components as dbc
 from constants.styles import (
     LABEL_STYLE, 
@@ -8,9 +8,8 @@ from constants.styles import (
     PAGE_HEADER_STYLE,
     BUTTON_STYLE
 )
-from database.get_employees import get_employee_names
+from database.get_employees import get_employee_names, get_employees, get_sales_executives
 
-employee_names: list[dict] = get_employee_names()
 
 def render() -> dbc.Col:
     return dbc.Col([
@@ -41,8 +40,8 @@ def render() -> dbc.Col:
                     dbc.Col(
                         dcc.Dropdown(
                             id='sales-exec',
-                            options=employee_names,
-                            value=employee_names[0].get('value'),
+                            # options=employee_names,
+                            # value=employee_names[0].get('value'),
                             style=INPUT_STYLE,
                             className='mb-2'
                         )
@@ -215,3 +214,19 @@ def render() -> dbc.Col:
     
         html.Hr()
     ])
+
+@callback([
+        Output('sales-exec', 'options'),
+        Output('sales-exec', 'value'),
+    ], Input('url', 'pathname'))
+def load_sales_executives(pathname):
+    if pathname == '/':
+        employee_names: list[dict] = get_employee_names(get_sales_executives)
+        dropdown_values = [
+            employee.get('value') for employee in employee_names
+        ]
+    else:
+        employee_names = []
+        dropdown_values = []
+
+    return employee_names, dropdown_values
