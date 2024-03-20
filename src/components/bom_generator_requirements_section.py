@@ -1,4 +1,4 @@
-from dash import Dash, html, dcc
+from dash import html, dcc
 import dash_bootstrap_components as dbc
 from constants.styles import (
     BUTTON_STYLE, 
@@ -8,7 +8,7 @@ from constants.styles import (
 )
 from database.get_employees import get_employee_names
 
-employee_names: list[dict] = get_employee_names()
+employee_names: list[dict] = []
 
 
 def render() -> dbc.Col:
@@ -89,7 +89,7 @@ def render() -> dbc.Col:
                         dcc.Dropdown(
                             id='reviewer',
                             options=employee_names,
-                            value=employee_names[0].get('value'),
+                            value='test',
                             style=INPUT_STYLE,
                             className='mb-2'
                         )
@@ -104,7 +104,7 @@ def render() -> dbc.Col:
                         dcc.Dropdown(
                             id='approver',
                             options=employee_names,
-                            value=employee_names[0].get('value'),
+                            value='test',
                             style=INPUT_STYLE,
                             className='mb-2'
                         )

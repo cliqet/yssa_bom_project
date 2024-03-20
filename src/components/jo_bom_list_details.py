@@ -1,5 +1,5 @@
 from dash import html
-from dash import dash_table
+from dash import dash_table, callback, Output, Input
 import dash_bootstrap_components as dbc
 from constants.styles import TABLE_HEADER_STYLE, TABLE_CELL_STYLE, TABLE_STYLE
 
@@ -106,3 +106,23 @@ def render() -> dbc.Col:
         ]),
 
     ], style={'margin-top': '20px', 'width': '800px', 'height': '100%'})
+
+# @callback(Output('jobom-table', 'data'), Input('url', 'pathname'))
+# def load_employees(pathname):
+#     if pathname == '/':
+#         employees: list[Employee] = get_employees()
+#         table_data = [
+#             {
+#                 'ID': employee.employee_id,
+#                 'Employee Name': f'{employee.first_name} {employee.last_name}',
+#                 'Department': employee.department_name,
+#                 'Position Title': employee.employee_position_title,
+#                 'Contact No.': employee.contact_no,
+#                 'Email Address': employee.email_address
+#             }
+#             for employee in employees
+#         ]
+#     else:
+#         table_data = []
+
+#     return table_data

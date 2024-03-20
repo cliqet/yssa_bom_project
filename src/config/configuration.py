@@ -1,6 +1,11 @@
 import toml
+from os.path import abspath, dirname, join
+from pathlib import Path
 
-_config: dict = toml.load('./src/config.toml')
+_current_file_dir = dirname(abspath(__file__))
+ROOT_DIR: str = Path(_current_file_dir).parent.absolute()
+
+_config: dict = toml.load(join(ROOT_DIR, 'config.toml'))
 
 class Configuration:
     class Application:
